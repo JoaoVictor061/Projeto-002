@@ -5,3 +5,25 @@ let container = document.querySelector('.container');
 let list = document.querySelector('.container .list');
 let thumb = document.querySelector('.container .thumb');
 
+btnNext.onclick = () => {
+    moveItemsOnClick('next');
+}
+btnBack.onclick = () => {
+    moveItemsOnClick('back');
+}
+
+
+function moveItemsOnClick(type) {
+    let listItems = list.querySelectorAll('.list .list-item');
+    let thumbItems = thumb.querySelectorAll('.thumb .thumb-item');
+
+    if (type === 'next') {
+        list.appendChild(listItems[0]);
+        thumb.appendChild(thumbItems[0]);
+
+    } else {
+        list.prepend(listItems[listItems.length - 1]);
+        thumb.prepend(thumbItems[thumbItems.length - 1]); 
+
+    }
+}
